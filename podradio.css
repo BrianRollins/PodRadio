@@ -1,0 +1,32 @@
+/*
+Modifying the classes built by podradio.js
+You don't need these per se, but you can alter them to make your
+stuff look much better.
+*/
+.podRadioContainer {
+  border:1px solid black;
+  padding:15px;
+  border-radius: 20px;
+  background-color:#E8E39B;
+}
+
+.podradioPodcastTitle {
+  color:#101621;
+}
+
+.podradioEpisodeTitle {
+  color:#2D2F3D;
+  margin-top:0px;
+}
+
+.podradioEpisodeDate {
+  color:#5E4A5A;
+}
+
+.podradioEpisodeDesc {
+  color:#8A5468;
+}
+
+.podradioEpisodeDesc > a {
+  color:#5E4A5A;
+}

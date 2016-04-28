@@ -1,0 +1,45 @@
+/* CSS elements and classes just for the demo.
+You don't need this for your own usages of podRadio */
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+body {
+  font-family:'Open Sans', sans-serif;
+  color:#101621;
+  background: linear-gradient(to bottom, #ddd, white);
+}
+
+h3 > a {
+  text-decoration:none;
+  color:#5E4A5A;
+
+}
+h3 > a:hover {
+  text-decoration: underline;
+}
+
+.playerControls {
+  display:none;
+  text-align:right;
+  width:auto;
+  margin: 10px 20px 0 0;
+}
+
+.btnControl {
+	background:linear-gradient(to bottom, #2d2f3d 5%, #101621 100%);
+	background-color:#2d2f3d;
+	border-radius:28px;
+	border:4px solid #2d2f3d;
+	display:inline-block;
+	cursor:pointer;
+	color:#e8e39b;
+	font-size:17px;
+	padding:8px 40px;
+	text-decoration:none;
+}
+.btnControl:hover {
+	background:linear-gradient(to bottom, #101621 5%, #2d2f3d 100%);
+	background-color:#101621;
+}
+.btnControl:active {
+	position:relative;
+	top:1px;
+}

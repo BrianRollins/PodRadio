@@ -1,0 +1,59 @@
+<html>
+  <head>
+    <title>PodRadio.js Demo</title>
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+    <script src="podradio.js"></script>
+    <link type="text/css" rel="stylesheet" href="style.css"/>
+    <link type="text/css" rel="stylesheet" href="podradio.css"/>
+  </head>
+  <body>
+    <h1>PodRadio.js Demo</h1>
+    <h3>By <a href="http://brianrollins.com">Brian Rollins</a></h3>
+    <p>A simple little demo of loading and playing podcast RSS feeds. It uses
+      the Yahoo! YQL engine to bypass cross-domain issues.</p>
+      <p>As you can see with the demo, you can load multiple instances of
+        players on one page. The limiting factor is the client's memory
+        and resources. It uses the HTML5 audio player, but you can tweak it to
+        build your own controls.</p>
+    <div id="player1"></div>
+    <div id="player1_Controls" class="playerControls">
+      <a href="#" onclick="myPlayer1.first(); return false;" class="btnControl">First</a>
+      <a href="#" onclick="myPlayer1.prev(); return false;" id="player1_Prev" class="btnControl">Previous</a>
+      <a class="btnControl" href="#" onclick="myPlayer1.next(); return false;" id="player1_Next">Next</a>
+      <a class="btnControl" href="#" onclick="myPlayer1.last(); return false;" id="player1_Next">Last</a>
+    </div>
+    <div id="player2"></div>
+    <div id="player2_Controls" class="playerControls">
+      <a href="#" onclick="myPlayer2.first(); return false;" class="btnControl">First</a>
+      <a href="#" onclick="myPlayer2.prev(); return false;" class="btnControl">Previous</a>
+      <a class="btnControl" href="#" onclick="myPlayer2.next(); return false;">Next</a>
+      <a class="btnControl" href="#" onclick="myPlayer2.last(); return false;">Last</a>
+    </div>
+    <div id="player3"></div>
+    <div id="player3_Controls" class="playerControls">
+      <a href="#" onclick="myPlayer3.first(); return false;" class="btnControl">First</a>
+      <a href="#" onclick="myPlayer3.prev(); return false;" class="btnControl">Previous</a>
+      <a class="btnControl" href="#" onclick="myPlayer3.next(); return false;">Next</a>
+      <a class="btnControl" href="#" onclick="myPlayer3.last(); return false;">Last</a>
+    </div>
+    <script>
+      var myPlayer1, myPlayer2; //Need these outside the ready function.
+      $("document").ready(function(){
+          //Custom ready() addition to podradio.
+          podradio.prototype.ready = function(){
+            $("#"+this.id+"_Controls").show();
+          }
+          //EscapePod
+          myPlayer1 = new podradio("http://escapepod.org/feed/podcast/", "player1");
+
+          //PodCastle
+          myPlayer2 = new podradio("http://feeds.escapeartists.net/PodCastle/", "player2");
+
+          //This is a PodioBook (a serialized audiobook via podcast).
+          //It works best with the oldest (first) episode at the front, so we'll reverse it.
+          myPlayer3 = new podradio("http://podiobooks.com/rss/feeds/episodes/the-rookie/", "player3", true);
+      });
+    </script>
+  </body>
+
+</html>
